@@ -1,0 +1,58 @@
+
+def level1_password():
+    correct_password = "password123"  # This is the correct textual password
+    input_password = input("Enter Level 1 (Textual) Password: ")
+    if input_password == correct_password:
+        print("Level 1 Authentication Successful.")
+        return True
+    else:
+        print("Level 1 Authentication Failed.")
+        return False
+
+# Level 2: Graphical Password Simulation
+def level2_password():
+    correct_pattern = [1, 2, 3, 4]  # This simulates a simple graphical password pattern
+    print("Select Level 2 (Graphical) Password Pattern (Choose 4 numbers between 1 to 4)")
+    input_pattern = []
+    for i in range(4):
+        num = int(input(f"Select number {i+1}: "))
+        input_pattern.append(num)
+    
+    if input_pattern == correct_pattern:
+        print("Level 2 Authentication Successful.")
+        return True
+    else:
+        print("Level 2 Authentication Failed.")
+        return False
+
+# Level 3: Behavioral Password Simulation
+def level3_password():
+    correct_sequence = ["up", "down", "left", "right"]  # This simulates a behavioral sequence
+    print("Enter Level 3 (Behavioral) Password Sequence (up, down, left, right)")
+    input_sequence = []
+    for i in range(4):
+        action = input(f"Enter action {i+1}: ").lower()
+        input_sequence.append(action)
+    
+    if input_sequence == correct_sequence:
+        print("Level 3 Authentication Successful.")
+        return True
+    else:
+        print("Level 3 Authentication Failed.")
+        return False
+
+# Main Authentication Function
+def authenticate():
+    if level1_password():
+        if level2_password():
+            if level3_password():
+                print("Authentication Successful. Access Granted.")
+            else:
+                print("Authentication Failed at Level 3. Access Denied.")
+        else:
+            print("Authentication Failed at Level 2. Access Denied.")
+    else:
+        print("Authentication Failed at Level 1. Access Denied.")
+
+# Run the authentication process
+authenticate()
